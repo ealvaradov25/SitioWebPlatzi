@@ -24,12 +24,10 @@ jobs:
           dotnet-version: 8.x
 
       - name: Build with dotnet
-        working-directory: ./PlatziWenSite
-        run: dotnet build --configuration Release
+        run: dotnet build SitioWebPlatzi/PlatziWenSite/PlatziWenSite.csproj --configuration Release
 
       - name: Publish with dotnet
-        working-directory: ./PlatziWenSite
-        run: dotnet publish --configuration Release --output ${{env.DOTNET_ROOT}}/myapp
+        run: dotnet publish SitioWebPlatzi/PlatziWenSite/PlatziWenSite.csproj --configuration Release --output ${{env.DOTNET_ROOT}}/myapp
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
