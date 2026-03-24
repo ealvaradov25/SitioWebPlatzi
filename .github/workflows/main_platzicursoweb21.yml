@@ -23,6 +23,9 @@ jobs:
         with:
           dotnet-version: 8.x
 
+      - name: Debug estructura del proyecto
+        run: dir ./SitioWebPlatzi /s
+
       - name: Build with dotnet
         run: dotnet build SitioWebPlatzi/PlatziWenSite/PlatziWenSite.csproj --configuration Release
 
