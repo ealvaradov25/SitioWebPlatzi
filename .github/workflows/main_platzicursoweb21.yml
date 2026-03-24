@@ -15,7 +15,7 @@ jobs:
     permissions:
       contents: read #This is required for actions/checkout
 
-    steps:
+  steps:
       - uses: actions/checkout@v4
 
       - name: Set up .NET Core
@@ -25,9 +25,11 @@ jobs:
 
       - name: Build with dotnet
         run: dotnet build --configuration Release
+        working-directory: ./PlatziWenSite
 
       - name: dotnet publish
         run: dotnet publish -c Release -o "${{env.DOTNET_ROOT}}/myapp"
+        working-directory: ./PlatziWenSite
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
